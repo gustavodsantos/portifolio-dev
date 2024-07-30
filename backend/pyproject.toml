@@ -13,6 +13,7 @@ python-decouple = "^3.8"
 dj-database-url = "^2.2.0"
 psycopg2 = "^2.9.9"
 django-min-custom-user = "^0.2.0"
+django-ordered-model = "^3.7.4"
 
 [tool.poetry.group.dev]
 optional = true

@@ -8,10 +8,13 @@
 
 .fundo{
     background-color: #8e0000;
+    font-size: 40px;
+    font-weight: 900;
 }
 
 .color{
     color: #ffffff;
+    font-size: 40px;
 }
 
 .center{
@@ -100,19 +103,19 @@
     padding: 80px 80px;
 }
 
-.rodape{
+footer{
     background-color:  #293651;
-    padding: 80px 80px;
+
     color: #828a9c;
     font-size: 14px;
 }
 
-.rodape a{
-    color: #828a9c;
+footer a{
+    color: #ffffff;
 }
 
-.rodape a:hover{
-    color: #fff;
+footer a:hover{
+    color: #111111;
 }
 
 .main-footer{
