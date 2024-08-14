@@ -1,7 +1,16 @@
-version: "4.33.0"
+version: "4.33.1"
 services:
+  nginx:
+    container_name: nginx-portifolio
+    image: nginx:1.27.0
+    volumes:
+      - ./staticfiles:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 80:80
+
   database:
-    container_name: test_docker
+    container_name: portifolio
     image: postgres:16.3
     volumes:
       - ./.pgdata:/var/lib/postgresql/data
