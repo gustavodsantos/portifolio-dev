@@ -38,11 +38,11 @@ jobs:
           python -m pip install poetry
           poetry install --with dev --sync
 
-      - name: Run Python Linter
-        run: poetry run flake8
+      - name: Lint
+        run: poetry run task lint
 
       - name: Copy instance config variables
         run: cp config/env-sample .env
 
       - name: Run backend Tests
-        run: poetry run pytest --cache-clear
+        run: poetry run pytest mysite --cov=mysite --cov-fail-under=82 --cache-clear
