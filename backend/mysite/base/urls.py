@@ -1,6 +1,6 @@
 from django.urls import path
 
-from mysite.base.views import home, apresentation
+from mysite.base.views import apresentation, home
 
 app_name = 'base'
 urlpatterns = [
