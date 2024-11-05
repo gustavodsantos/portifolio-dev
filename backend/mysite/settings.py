@@ -124,8 +124,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_ROOT = BASE_DIR.parent / 'portifolio_docker/staticfiles/static'
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR.parent / 'portifolio_docker/staticfiles/static'
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = BASE_DIR.parent / 'portifolio_docker/mediafiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
