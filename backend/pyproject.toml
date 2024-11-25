@@ -16,6 +16,10 @@ psycopg2 = "^2.9.9"
 django-min-custom-user = "^0.2.0"
 django-ordered-model = "^3.7.4"
 pillow = "^11.0.0"
+django-storages = {extras = ["s3"], version = "^1.14.4"}
+devpro-s3-storages = "^0.2.0"
+django-extensions = "^3.2.3"
+ipython = "^8.29.0"
 
 [tool.poetry.group.dev]
 optional = true
@@ -44,9 +48,7 @@ quote-style = 'single'
 
 [tool.taskipy.tasks]
 lint = 'ruff check . && ruff check . --diff'
-
 format = 'ruff check . --fix && ruff format .'
-
 run = 'python manage.py runserver'
 
 pre_test = 'task lint'
