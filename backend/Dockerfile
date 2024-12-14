@@ -1,32 +1,39 @@
-# Etapa 1: Usar a imagem oficial do Python como base
-FROM python:3.12-slim as base
+#Usar a imagem base do Python
+FROM python:3.12
 
-# Etapa 2: Instalar dependências do sistema necessárias para a instalação de pacotes
-RUN apt-get update && \
-    apt-get install -y \
+# Instalar dependências de sistema necessárias
+RUN apt-get update && apt-get install -y \
+    curl \
     build-essential \
     libpq-dev \
-    libjpeg-dev \
-    libpng-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Etapa 3: Instalar o Poetry
+WORKDIR /backend
+
+ENV POETRY_VIRTUALENVS_CREATE=false \
+    POETRY_CACHE_DIR='/var/cache/pypoetry'
+
+# Instalar o Poetry
+#RUN curl -sSL https://install.python-poetry.org | python3 -
 RUN pip install poetry
 
-# Etapa 4: Definir o diretório de trabalho no container
-WORKDIR /app
+# Adicionar o Poetry ao PATH
+#ENV PATH="/root/.local/bin:$PATH"
 
-# Etapa 5: Copiar o pyproject.toml e poetry.lock (se existir)
-COPY pyproject.toml poetry.lock* /app/
+# Definir o diretório de trabalho dentro do contêiner
 
-# Etapa 6: Instalar as dependências do projeto com o Poetry
-RUN poetry install --no-root --no-dev  # Instalando dependências para produção
+#Copiar os arquivos pyproject.toml e poetry.lock da raiz do projeto para o contêiner
+COPY pyproject.toml ../backend
+COPY poetry.lock ../backend
 
-# Etapa 7: Copiar o restante do código-fonte do projeto
-COPY ./backend /app
+# Instalar as dependências sem o pacote raiz
+RUN poetry install --no-root --without dev
 
-# Etapa 8: Expor a porta padrão do Django (8000)
+# Copiar o restante do código do projeto para o contêiner
+COPY ./ ./
+
+# Expor a porta que o Django vai usar
 EXPOSE 8000
 
-# Etapa 9: Definir o comando de execução para rodar o servidor Django
-CMD ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Comando para rodar o Django
+CMD ["gunicorn", "--bind", ":8000", "--workers", "1", "mysite.wsgi"]
