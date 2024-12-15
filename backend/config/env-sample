@@ -4,17 +4,20 @@ SECRET_KEY=escolha-um-segredo-como-valor-para-o-django
 LANGUAGE_CODE=pt-br
 TIME_ZONE=America/Sao_Paulo
 
+# Configure os dominios ou ips que sua aplicação vai rodar, separadas por vírgula
+ALLOWED_HOSTS=localhost,127.0.0.1
+
 POSTGRES_DB=postgres
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 
-# Configure os dominios ou ips que sua aplicação vai rodar, separadas por vírgula
-ALLOWED_HOSTS=localhost,127.0.0.1
+# ⚠️ AVISO
+# É possível alterar entre COM DOCKER ou SEM DOCKER conforme as configurações abaixo
 
 ## 🖥️  Para uso local via virtualenv
 #POSTGRES_HOST=localhost
 #POSTGRES_PORT=15432
-# DATABASE_URL=postgres://postgres:postgres@localhost:15432/postgres
+#DATABASE_URL=postgres://postgres:postgres@localhost:15432/postgres
 
 
 ## 🐳 Para uso via container/Docker

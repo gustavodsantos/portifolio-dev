@@ -18,12 +18,26 @@
     font-family: "Montserrat", "sans-serif";
 }
 
-html,body {
+html, body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
 }
 
+/* Conteúdo principal */
+.content {
+    flex: 1;
+    color: #1b1b1b;
+}
+
 section {
-    height: 600px;
+    min-height: 78vh;
 }
 
 section.imagem {
@@ -33,34 +47,27 @@ section.imagem {
 
 #img {
     background-image: url("../img/imagem_sem_fundo.png");
-    background-position: center;
+    background-position: bottom;
 }
 
-
-
-.fundo{
+.fundo {
     background-color: #8e0000;
-    font-size: 40px;
+    font-size: 20px;
     font-weight: 900;
 }
 
-.color{
-    color: #ffffff;
-    font-size: 40px;
-}
-
-.center{
+.center {
     text-align: center;
     margin-bottom: -4px;
 }
 
-.parte1{
+.parte1 {
     margin-left: 80px;
     margin-top: 80px;
     margin-right: 80px;
 }
 
-.parte2{
+.parte2 {
     background-color: #00a78e;
     padding: 80px 80px;
     color: #fff;
@@ -80,16 +87,16 @@ section.imagem {
     padding-bottom: 20px;
 }
 
-.parte2 .subtitle1{
+.parte2 .subtitle1 {
     color: #fff;
 }
 
-.parte2 .texto{
+.parte2 .texto {
     letter-spacing: 1.2pt;
     margin-bottom: 26px;
 }
 
-.parte2 .projetos{
+.parte2 .projetos {
     list-style: none;
 }
 
@@ -100,7 +107,7 @@ section.imagem {
     padding-bottom: 15px;
 }
 
-.text{
+.text {
     color: #76778c;
     font-size: 20px;
     letter-spacing: 1.2pt;
@@ -117,36 +124,36 @@ section.imagem {
     font-weight: 500;
 }
 
-.barra-progresso{
+.barra-progresso {
     height: 40px;
     width: 400px;
     accent-color: #00a78e;
 }
 
-.parte3{
+.parte3 {
     color: #00a78e;
     padding: 80px 80px;
 }
 
-footer{
+footer {
     margin: 0;
-    background-color:  #293651;
+    background-color: #293651;
     color: #828a9c;
     font-size: 14px;
 }
 
-footer a{
+footer a {
     color: #ffffff;
 }
 
-footer a:hover{
+footer a:hover {
     color: #111111;
 }
 
-.main-footer{
+.main-footer {
     background-color: #8e0000;
 }
 
-.rights{
+.rights {
     background-color: #a80000;
 }
