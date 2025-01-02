@@ -146,9 +146,9 @@ def configure_storage(has_s3_bucket: bool):
         # Configuração para armazenamento local
         return {
             'STATIC_URL': '/static/',
-            'STATIC_ROOT': BASE_DIR.parent / 'portifolio_docker/staticfiles/static',
+            'STATIC_ROOT': BASE_DIR.parent / 'docker/staticfiles/static',
             'MEDIA_URL': '/media/',
-            'MEDIA_ROOT': BASE_DIR.parent / 'portifolio_docker/mediafiles',
+            'MEDIA_ROOT': BASE_DIR.parent / 'docker/mediafiles',
             'STORAGES': {
                 'default': {
                     'BACKEND': 'devpro_s3_storages.handlers.FileSystemWithValidationStorage',
