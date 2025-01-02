@@ -2,8 +2,6 @@
 services:
   database:
     image: postgres:16.3
-    ports:
-      - "5432:5432"
     volumes:
       - ./.pgdata:/var/lib/postgresql/data
     env_file:
@@ -21,9 +19,8 @@ services:
       python manage.py collectstatic --noinput &&
       gunicorn mysite.wsgi:application --bind 0.0.0.0:8000"
     volumes:
-      - ../backend:/app
-      - ./staticfiles/static:/app/docker/staticfiles/static
-      - ./mediafiles:/app/docker/mediafiles
+      - staticfiles:/app/docker/staticfiles/static
+      - mediafiles:/app/docker/mediafiles
     restart: always
 
   nginx:
@@ -38,3 +35,8 @@ services:
     restart: always
     depends_on:
       - backend
+volumes:
+  staticfiles:
+    driver: local
+  mediafiles:
+    driver: local

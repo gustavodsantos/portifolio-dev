@@ -1,21 +1,25 @@
 @charset "UTF-8";
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
 
 :root {
     --fonte1: Verdana, Geneva, Tahoma, sans-serif;
     --fonte2: 'Passion One', cursive;
     --fonte3: 'Sriracha', cursive;
+    --secondary-color: #00a78e;
+    --text-light: #ffffff;
+    --primary-color: #8e0000;
+    --primary-light: #a80000;
+    --neutral-color: #293651;
+    --text-color: #76778c;
 }
 
 * {
     margin: 0;
     padding: 0;
-    font-family: "Montserrat", "sans-serif";
+    font-family: var(--fonte1);
 }
 
 html, body {
@@ -42,36 +46,38 @@ section {
 
 section.imagem {
     background-size: contain;
+    background-attachment: fixed;
     background-repeat: no-repeat;
+    background-position: center;
+    height: 80vh;
+    max-height: 1000px;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 #img {
     background-image: url("../img/imagem_sem_fundo.png");
-    background-position: bottom;
 }
 
 .fundo {
-    background-color: #8e0000;
+    background-color: var(--primary-color);
     font-size: 20px;
     font-weight: 900;
 }
 
 .center {
     text-align: center;
-    margin-bottom: -4px;
+    margin-bottom: 0;
 }
 
 .parte1 {
-    margin-left: 80px;
-    margin-top: 80px;
-    margin-right: 80px;
+    margin: 20px;
 }
 
 .parte2 {
-    background-color: #00a78e;
+    background-color: var(--secondary-color);
     padding: 80px 80px;
     color: #fff;
-
 }
 
 .title {
@@ -83,7 +89,7 @@ section.imagem {
 .subtitle1 {
     font-size: 26px;
     color: #111111;
-    letter-spacing: 2pt;
+    letter-spacing: 1.5px;
     padding-bottom: 20px;
 }
 
@@ -100,11 +106,28 @@ section.imagem {
     list-style: none;
 }
 
+nav.navbar {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav.navbar a.nav-link {
+    transition: color 0.3s ease-in-out;
+}
+
+nav.navbar a.nav-link:hover {
+    color: var(--primary-light);
+}
+
 .subtitle2 {
     font-size: 22px;
     font-weight: 300;
     letter-spacing: 2pt;
     padding-bottom: 15px;
+}
+
+a:focus,
+button:focus {
+    outline: 2px solid var(--primary-light);
 }
 
 .text {
@@ -115,13 +138,19 @@ section.imagem {
     margin-bottom: 40px;
 }
 
-.btn {
+.btn-custon {
     color: white;
-    background-color: #8e0000;
+    background-color: var(--primary-color);
     border-radius: 5px;
     padding: 20px 40px;
     text-decoration: none;
     font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-custon:hover {
+    background-color: var(--primary-light);
+    transform: scale(1.05);
 }
 
 .barra-progresso {
@@ -131,29 +160,95 @@ section.imagem {
 }
 
 .parte3 {
-    color: #00a78e;
+    color: var(--secondary-color);
     padding: 80px 80px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 footer {
     margin: 0;
-    background-color: #293651;
+    background-color: var(--neutral-color);
     color: #828a9c;
     font-size: 14px;
 }
 
 footer a {
-    color: #ffffff;
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: color 0.3s ease-in-out;
 }
 
 footer a:hover {
-    color: #111111;
+    color: var(--primary-light);
 }
 
 .main-footer {
-    background-color: #8e0000;
+    background-color: var(--neutral-color);
+    padding: 20px 0;
+    text-align: center;
 }
 
 .rights {
-    background-color: #a80000;
+    background-color: var(--neutral-color);
+    padding: 10px 0;
+    font-size: 12px;
+}
+
+/* Responsividade */
+@media (min-width: 1200px) {
+    section.imagem {
+        height: 70vh;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    section.imagem {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 768px) {
+    footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .text {
+        font-size: 16px;
+    }
+    .btn-custon {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    .title {
+        font-size: 24px;
+    }
+    .subtitle1 {
+        font-size: 18px;
+    }
+    section.imagem {
+        background-size: contain;
+        height: 50vh;
+    }
+}
+
+@media (max-width: 576px) {
+    section.imagem {
+        height: 40vh;
+    }
 }
