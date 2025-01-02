@@ -8,29 +8,23 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /backend
+WORKDIR /app
 
 ENV POETRY_VIRTUALENVS_CREATE=false \
     POETRY_CACHE_DIR='/var/cache/pypoetry'
 
 # Instalar o Poetry
-#RUN curl -sSL https://install.python-poetry.org | python3 -
 RUN pip install poetry
 
-# Adicionar o Poetry ao PATH
-#ENV PATH="/root/.local/bin:$PATH"
-
-# Definir o diretório de trabalho dentro do contêiner
-
 #Copiar os arquivos pyproject.toml e poetry.lock da raiz do projeto para o contêiner
-COPY pyproject.toml ../backend
-COPY poetry.lock ../backend
+COPY pyproject.toml ./
+COPY poetry.lock ./
 
 # Instalar as dependências sem o pacote raiz
 RUN poetry install --no-root --without dev
 
 # Copiar o restante do código do projeto para o contêiner
-COPY ./ ./
+COPY . ./
 
 # Expor a porta que o Django vai usar
 EXPOSE 8000
