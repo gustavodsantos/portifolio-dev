@@ -31,7 +31,7 @@ services:
       - ./docker/staticfiles:/app/staticfiles
       - ./docker/mediafiles:/app/mediafiles
     ports:
-      - "80:80"
+      - 80:80
     command: /bin/sh -c "envsubst '${DOMAIN_NAME:-}' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
     restart: always
     depends_on:
