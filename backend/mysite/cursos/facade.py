@@ -1,6 +1,5 @@
 from typing import List
 
-# from django.db.models import Prefetch
 from mysite.cursos.models import Curso
 
 
