@@ -31,7 +31,7 @@ html, body {
 .wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 50vh;
 }
 
 /* Conteúdo principal */
@@ -40,16 +40,10 @@ html, body {
     color: #1b1b1b;
 }
 
-section {
-    min-height: 78vh;
-}
-
 section.imagem {
     background-size: contain;
-    background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
-    height: 80vh;
     max-height: 1000px;
     max-width: 1920px;
     margin: 0 auto;
@@ -123,6 +117,19 @@ nav.navbar a.nav-link:hover {
     font-weight: 300;
     letter-spacing: 2pt;
     padding-bottom: 15px;
+}
+
+.link-cursos {
+    text-decoration: none;
+    color: black;
+}
+
+.link-cursos:focus {
+    outline: 2px solid var(--primary-light);
+}
+
+.link-cursos:hover {
+    color: var(--primary-light);
 }
 
 a:focus,
@@ -212,18 +219,29 @@ footer a:hover {
 
 /* Responsividade */
 @media (min-width: 1200px) {
+    section {
+        min-height: 70vh;
+    }
     section.imagem {
         height: 70vh;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
+    section {
+        min-height: 70vh;
+    }
     section.imagem {
-        height: 60vh;
+        height: 70vh;
     }
 }
 
 @media (max-width: 768px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 70vh;
+    }
     footer .container {
         flex-direction: column;
         text-align: center;
@@ -243,12 +261,6 @@ footer a:hover {
     }
     section.imagem {
         background-size: contain;
-        height: 50vh;
-    }
-}
-
-@media (max-width: 576px) {
-    section.imagem {
-        height: 40vh;
+        height: 70vh;
     }
 }
