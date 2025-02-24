@@ -3,8 +3,6 @@
 Bem-vindo ao repositório do **Portfólio Dev**, um projeto desenvolvido para apresentar as habilidades em desenvolvimento web utilizando o framework **Django**.
 Este projeto é um site dinâmico com funcionalidades básicas para apresentação de informações, organização de cursos e gerenciamento de conteúdo.
 
-> **Dica**: Você também pode acessar o projeto na instância configurada do EC2. Use o link abaixo:
-   [Projeto ao vivo](http://ec2-54-167-236-164.compute-1.amazonaws.com)
 
 ## 📋 Requisitos
 
